@@ -14,11 +14,11 @@ const Skills = ({}: Props) => {
       transition={{ duration: 1.5 }}
       className="h-screen flex items-center relative flex-col text-center md:text-left xl:flex-row max-w-[2000px] xl:px-10 min-h-screen justify-center xl:space-y-8 mx-auto"
     >
-      <h1 className="absolute top-[72px] md:top-16 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h1 className="absolute top-[72px] md:top-16 uppercase tracking-[20px] text-gray-500 text-[22px]">
         Skills
       </h1>
 
-      <h3 className="absolute top-28 md:top-20 uppercase tracking-[3px] text-gray-500 text-sm">
+      <h3 className="absolute top-28 md:top-[85px] uppercase tracking-[3px] text-gray-500 text-sm">
         hover over a skill for currency proficiency
       </h3>
 
