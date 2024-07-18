@@ -41,34 +41,34 @@ const Header = () => {
         />
       </motion.div>
 
-        <motion.div
-         onClick={() => router.push('#contact')}
-          initial={{
-            x: 500,
-            opacity: 0,
-            scale: 0.5,
-          }}
-          animate={{
-            x: 0,
-            opacity: 1,
-            scale: 1,
-          }}
-          transition={{
-            duration: 1.5,
-          }}
-          className="flex items-center cursor-pointer"
-        >
-          <SocialIcon
-            className="cursor-pointer"
-            network="email"
-            fgColor="gray"
-            bgColor="transparent"
-          />
+      <motion.div
+        onClick={() => router.push("#contact")}
+        initial={{
+          x: 500,
+          opacity: 0,
+          scale: 0.5,
+        }}
+        animate={{
+          x: 0,
+          opacity: 1,
+          scale: 1,
+        }}
+        transition={{
+          duration: 1.5,
+        }}
+        className="flex items-center cursor-pointer"
+      >
+        <SocialIcon
+          className="cursor-pointer"
+          network="email"
+          fgColor="gray"
+          bgColor="transparent"
+        />
 
-          <p className="uppercase hidden md:inline-flex text-gray-400">
-            Get In Touch
-          </p>
-        </motion.div>
+        <p className="uppercase hidden md:inline-flex text-gray-400">
+          Get In Touch
+        </p>
+      </motion.div>
     </header>
   );
 };
