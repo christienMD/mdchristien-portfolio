@@ -1,12 +1,23 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Skill from "./Skill";
+import { Skill as SkillType } from "@/typings";
+import { fetchSkills } from "../utils/fetchSkills";
 
-interface Props {}
+const Skills = () => {
+  const [skills, setSkills] = useState<SkillType[]>([]);
 
-const Skills = ({}: Props) => {
+  useEffect(() => {
+    const getSkills = async () => {
+      const fetchedSkills = await fetchSkills();
+      setSkills(fetchedSkills);
+    };
+
+    getSkills();
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -22,19 +33,14 @@ const Skills = ({}: Props) => {
         hover over a skill for currency proficiency
       </h3>
 
-      <div className="grid grid-cols-4 gap-5 ">
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
+      <div className="grid grid-cols-4 gap-5">
+        {skills.slice(0 , skills.length / 2).map((skill) => (
+          <Skill key={skill._id} skill={skill} />
+        ))}
+
+        {skills.slice(skills.length/2 , skills.length).map((skill) => (
+          <Skill key={skill._id} skill={skill} directionLeft/>
+        ))}
       </div>
     </motion.div>
   );

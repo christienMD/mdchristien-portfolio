@@ -1,10 +1,22 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Project } from "@/typings";
+import { fetchProjects } from "../utils/fetchProjects";
+import { urlFor } from "@/sanity";
 
 const Projects = () => {
-  const projects = [1, 2, 3, 4, 5];
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    const getProjects = async () => {
+      const fetchedProjects = await fetchProjects();
+      setProjects(fetchedProjects);
+    };
+
+    getProjects();
+  }, []);
 
   return (
     <motion.div
@@ -21,7 +33,7 @@ const Projects = () => {
         {/* projects */}
         {projects.map((project, i) => (
           <div
-            key={project}
+            key={project._id}
             className="w-screen flex-shrink-0 snap-center flex flex-col gap-4 items-center justify-center h-screen px-10 py-20 sm:p-20 md:p-40"
           >
             <motion.div
@@ -37,7 +49,7 @@ const Projects = () => {
               <Image
                 alt=""
                 fill
-                src="/mdprofile.jpg"
+                src={urlFor(project.image).url()}
                 className="object-cover rounded-lg"
                 sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
               />
@@ -46,15 +58,25 @@ const Projects = () => {
             <div className="space-y-10 px-0 md:10 w-full sm:max-w-6xl">
               <h4 className="text-[22px] font-semibold">
                 <span className="underline decoration-[#F7AB0A]">
-                  Case Study {i + 1} of {projects.length}: UPS: Clone
+                  Case Study {i + 1} of {projects.length}:
                 </span>
+                {project.title}
               </h4>
 
+              <div className="flex items-center gap-2 justify-center">
+                {project.technologies.map((technology) => (
+                  <Image
+                   width={25}
+                   height={25}
+                    alt={technology.title}
+                    key={technology._id}
+                    src={urlFor(technology.image).url()}
+                  />
+                ))}
+              </div>
+
               <p className="text-base text-center md:text-left">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-                magni, reiciendis sequi dolorem quibusdam, eum quasi tempore
-                doloribus incidunt nulla eligendi. Repellendus totam adipisci,
-                dolore eum vel quo neque magni molestias cumque.
+                {project.summary}
               </p>
             </div>
           </div>

@@ -42,7 +42,9 @@ export default function Home() {
 
       <footer className="p-10 w-full mt-10 flex relative items-end justify-between snap-start">
         <Logo />
-        <p className="text-lg italic text-[#F7AB0A]/90">md@full-stack-dev 2024</p>
+        <p className="text-lg italic text-[#F7AB0A]/90">
+          md@full-stack-dev 2024
+        </p>
       </footer>
     </main>
   );

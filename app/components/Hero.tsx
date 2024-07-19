@@ -1,16 +1,14 @@
-"use client";
-
-import { Cursor, Typewriter, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
 import Image from "next/image";
 import Link from "next/link";
+import TypeWriter from "./TypeWriter";
+import { PageInfo } from "@/typings";
 
-const Hero = () => {
-  const [text, count] = useTypewriter({
-    words: ["Hi, I'm Mesueh Christien", "A Full Stack Developer"],
-    loop: true,
-    delaySpeed: 2000,
-  });
+const Hero = async () => {
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getPageInfo`);
+  const pageInfo: PageInfo = await res.json();
+
 
   return (
     <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
@@ -27,10 +25,7 @@ const Hero = () => {
         <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
           Software Engineer
         </h2>
-        <h1 className="text-4xl lg:text-5xl font-semibold px-10">
-          <span>{text}</span>
-          <Cursor cursorColor="#F7AB0A" />
-        </h1>
+        <TypeWriter />
 
         <div className="pt-3">
           <Link href="#about">
