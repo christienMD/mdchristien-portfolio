@@ -1,8 +1,11 @@
 
-import { fetchSocials } from "../utils/fetchSocials";
-import HeaderContent from "./HeaderContent";
+import HeaderContent, { Socials } from "./HeaderContent";
 
 export default async function Header() {
-  const socials = await fetchSocials();
+  const socials: Socials[] = [
+    { url: "https://twitter.com/MdChristien" },
+    { url: "https://github.com/christienMD" },
+  ];
+  
   return <HeaderContent socials={socials} />;
 }

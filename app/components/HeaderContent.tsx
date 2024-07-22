@@ -2,11 +2,14 @@
 
 import { motion } from "framer-motion";
 import { SocialIcon } from "react-social-icons";
-import { Social } from "@/typings";
 import { useRouter } from "next/navigation";
 
+export interface Socials {
+  url: string;
+}
+
 interface Props {
-  socials: Social[];
+  socials: Socials[];
 }
 
 const HeaderContent = ({ socials }: Props) => {
@@ -32,7 +35,7 @@ const HeaderContent = ({ socials }: Props) => {
       >
         {socials.map((social) => (
           <SocialIcon
-            key={social._id}
+            key={social.url}
             url={social.url}
             fgColor="gray"
             bgColor="transparent"

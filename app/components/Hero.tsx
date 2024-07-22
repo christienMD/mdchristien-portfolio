@@ -2,12 +2,9 @@ import BackgroundCircles from "./BackgroundCircles";
 import Image from "next/image";
 import Link from "next/link";
 import TypeWriter from "./TypeWriter";
-import { PageInfo } from "@/typings";
+
 
 const Hero = async () => {
-
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getPageInfo`);
-  const pageInfo: PageInfo = await res.json();
 
 
   return (

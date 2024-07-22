@@ -40,7 +40,7 @@ export default function Home() {
         <ContactMe />
       </section>
 
-      <footer className="p-10 w-full mt-10 flex relative items-end justify-between snap-start">
+      <footer className="p-10 w-full mt-10 flex gap-4 relative items-end justify-between snap-start">
         <Logo />
         <p className="text-lg italic text-[#F7AB0A]/90">
           md@full-stack-dev 2024

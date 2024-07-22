@@ -10,7 +10,7 @@ const TypeWriter = () => {
   });
 
   return (
-    <h1 className="text-4xl lg:text-5xl font-semibold px-10">
+    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold px-10">
       <span>{text}</span>
       <Cursor cursorColor="#F7AB0A" />
     </h1>
