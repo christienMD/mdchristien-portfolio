@@ -140,7 +140,7 @@ const Projects = () => {
                 ))}
               </div>
 
-              <p className="text-sm text-center md:text-left">
+              <p className="text-sm md:text-base text-center md:text-left">
                 {project.summary}
               </p>
             </div>
