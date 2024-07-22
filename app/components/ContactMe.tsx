@@ -27,7 +27,7 @@ const ContactMe = () => {
 
       {/* Adjusted margin-top for better spacing on mobile */}
       <div className="flex flex-col items-center justify-center mt-24 md:mt-16 gap-3 w-full max-w-md">
-        <h4 className="text-lg md:text-[22px] font-semibold text-center">
+        <h4 className="text-lg md:text-[22px] font-medium text-center">
           I have got just what you need.{" "}
           <span className="underline decoration-[#F7AB0A]">
             Let&apos;s Talk
